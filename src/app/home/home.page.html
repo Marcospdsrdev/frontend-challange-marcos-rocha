@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/']">
+        Sign-out
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Countries
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar placeholder="Filter country" color="warning" animated (ionChange)="onSearchChange($event)" ></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let country of filterCountries " sizeMd="6" sizeSm="12">
+        <ion-card (click)="goToHolidays(country.code)">
+          <ion-card-header>
+            <ion-card-title>{{country.name}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
